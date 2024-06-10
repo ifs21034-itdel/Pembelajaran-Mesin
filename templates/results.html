@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #343a40;
+      }
+
+      h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Admission Result</h1>
+      <h2>
+        We're sorry to inform you that you're most likely not getting admitted.
+      </h2>
+      <img
+        src="https://media.giphy.com/media/l3q2LdJ0fW6dcQDmg/giphy.gif"
+        alt="Sorry Image"
+      />
+      <p>
+        If you have any concerns or questions, feel free to
+        <a href="{{ url_for('disclaimer') }}">contact us</a>.
+      </p>
+      <p>
+        Or you can go back to <a href="{{ url_for('home') }}">home page</a>.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission Predictor</title>
+    <style>
+      body {
+        font-family: Calibri, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-weight: 900;
+        font-size: 34px;
+        line-height: 48px;
+        color: #231d3c;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 26px;
+        color: #7d53ef;
+        margin: 10px 0 30px;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      select,
+      input[type="text"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>
+        Discover Your Chances of Getting into Your Dream University using
+        Machine Learning!
+      </h1>
+      <h2>Try the Student Admission Predictor Below</h2>
+
+      <form action="{{ url_for('results') }}" method="POST" id="message">
+        <p>
+          University:
+          <select name="uni">
+            <option selected disabled>Select University</option>
+            {% for d in uni %}
+            <option value="{{d}}">{{d}}</option>
+            {% endfor %}
+          </select>
+        </p>
+        <p>
+          Course:
+          <select name="cour">
+            <option selected disabled>Select Course</option>
+            {% for d in cour %}
+            <option value="{{d}}">{{d}}</option>
+            {% endfor %}
+          </select>
+        </p>
+        <p>
+          Graduate Year:
+          <input
+            type="text"
+            name="year"
+            placeholder="Enter Graduation Year"
+          /><br />
+        </p>
+        <p>
+          GRE Score:
+          <input type="text" name="gre" placeholder="Enter GRE Score" /><br />
+        </p>
+        <p>
+          Undergraduate Score (in percentage):
+          <input
+            type="text"
+            name="undergrad"
+            placeholder="Enter Undergraduate Score"
+          /><br />
+        </p>
+        <p>
+          Work Experience (in months):
+          <input
+            type="text"
+            name="work"
+            placeholder="Enter Work Experience"
+          /><br />
+        </p>
+        <p>
+          <input type="submit" value="Tell me my chances" />
+        </p>
+      </form>
+
+      <p><a href="{{ url_for('disclaimer') }}">Disclaimer</a></p>
+    </div>
+  </body>
+</html>
